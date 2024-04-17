@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(230, 230, 230);
+}
+
+body h1, h2 {
+    text-align: center;
+}
+.carousel-item img{
+    width: 900px;
+    height: 700px;
+}
+
+.fooc{
+    background-color: black;
+    margin-top: 100px;
+    color: white;
+    padding: 50px;
+}
+
+.txtfo {
+    color: white;
+}
