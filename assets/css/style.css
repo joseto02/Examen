@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(230, 230, 230);
+    background-color: #000000;
 }
 
 body h1, h2 {
@@ -11,6 +11,7 @@ body h1, h2 {
 }
 
 .fooc{
+    border: 2px solid;
     background-color: black;
     margin-top: 100px;
     color: white;
@@ -23,4 +24,45 @@ body h1, h2 {
 
 .btn{
     margin-right: 10px;
+}
+
+.eslogan {
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.carousel-control-prev:hover {
+    background-image: linear-gradient(to left, transparent, #000000);
+    transition: 0.3s ease;
+    background-color: transparent;
+}
+
+.carousel-control-next:hover {
+    background-image: linear-gradient(to right, transparent, #000000);
+    transition: 0.3s ease;
+    background-color: transparent;
+}
+
+.pord-dest{
+    border: 3px solid;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-body {
+    background-color:#2a2a2a;
+    border: 3px solid;
+    color: white;
+}
+
+.btn-outline-success{
+    color:white;
+    border: 2px solid;;
 }
