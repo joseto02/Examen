@@ -49,6 +49,7 @@ body h1, h2 {
 .pord-dest{
     border: 3px solid;
     margin-top: 20px;
+    margin-bottom: 20px;
     color: white;
     font-weight: bold;
     background-color: black;
