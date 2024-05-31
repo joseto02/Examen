@@ -1,31 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incio sesion</title>
-    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/styles_login.css">
+    <title>Login</title>
 </head>
 <body>
-    <h1>Zapateria San Antonio</h1>
-    <div class="center">
-        <h1>Iniciar sesion</h1>
-        <form method="post">
-            <div class="txt_field">
-                <input type="email" required>
-                <label>Email</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" required>
-                <label>Contraseña</label>
-            </div>
-            <div class="pass">Olvidaste tu contraseña?</div>
-            <a href="index.html" class="btn">Entrar</a>
-            <!-- <input type="submit" value="Entrar" onclick="window.location.href='index.html';"> -->
-            <div class="signup_link">
-                No eres miembro?<a href="registro.html">Registrate</a>
-            </div>
+    <section>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label>Correo</label>
+            <input type="email" placeholder="..." id="email" required autofocus>
+            <label>Contraseña</label>
+            <input type="password" placeholder="..." id="password" required>
+            <input type="submit" value="Ingresar">
         </form>
-    </div>
+        <p>No tienes una cuenta? <a href="registro.html">registro</a></p>
+    </section>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
