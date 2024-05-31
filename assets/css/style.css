@@ -66,3 +66,19 @@ body h1, h2 {
     color:white;
     border: 2px solid;;
 }
+
+.nav-card{
+    display: none;
+}
+
+.nav button{
+    display: none;
+}
+
+.carrito:hover > .buy-card {
+    width: 400px;
+    height: 400px;
+    position:absolute;
+    right: 0;
+    background-color: #ffff;
+}
