@@ -1,21 +1,11 @@
-const obtenerZapatillas = async () => {
-    try {
-        const response = await fetch("https://api-zapatillas.onrender.com");
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log(`El error es: ${error}`);
-    }
-}
+import { obtenerZapatillas } from "./fetch/fetch.zapatillas.js";
 
-//https://run.mocky.io/v3/dfe35852-25de-4182-aba2-57a9cb479267
-
+//FUNCION PARA DIBUJAR Y MOSTRAR LOS DATOS
 const crearTarjetas = (zapatillas) => {
 
     let zapatillaRow = document.getElementById("zapatillaRow");
 
-    // zapatillas.map
-    Object.values(zapatillas).map((zapatilla) => {
+    zapatillas.map((zapatilla) => {
 
         const { nombre, marca, precio, img: imagen } = zapatilla;
 
@@ -40,7 +30,7 @@ const crearTarjetas = (zapatillas) => {
 
         const titulo = document.createElement("h5");
         titulo.classList.add("card-title");
-        titulo.textContent = nombre;
+        titulo.textContent = nombre.toUpperCase();
 
         const subTitulo = document.createElement("p");
         subTitulo.classList.add("card-text");
@@ -48,12 +38,12 @@ const crearTarjetas = (zapatillas) => {
 
         const subTitulo2 = document.createElement("h4");
         subTitulo2.classList.add("card-text");
-        subTitulo2.textContent = precio;
+        subTitulo2.textContent = "$" + precio.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         const btnMostrar = document.createElement("button");
         btnMostrar.classList.add("btn");
         btnMostrar.classList.add("btn-danger");
-        btnMostrar.textContent = "ver detalles";
+        btnMostrar.textContent = "Ver detalles";
 
         divRow.appendChild(card);
 
@@ -77,9 +67,10 @@ obtenerZapatillas()
         console.log(error);
     })
 
+// CODIGO PARA PROBAR SI TE CONECTASTE A LA API
 // obtenerZapatillas()
 //     .then((zapatillas) => {
-//         Object.values(zapatillas).map((zapatilla) => {
+//         zapatillas.map((zapatilla) => {
 //             console.log(zapatilla);
 //         })
 //     })
