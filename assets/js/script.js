@@ -1,4 +1,3 @@
-
 const obtenerZapatillas = async () => {
     try {
         const response = await fetch("https://api-zapatillas.onrender.com");
@@ -9,6 +8,8 @@ const obtenerZapatillas = async () => {
     }
 }
 
+//https://run.mocky.io/v3/dfe35852-25de-4182-aba2-57a9cb479267
+
 const crearTarjetas = (zapatillas) => {
 
     let zapatillaRow = document.getElementById("zapatillaRow");
@@ -16,7 +17,7 @@ const crearTarjetas = (zapatillas) => {
     // zapatillas.map
     Object.values(zapatillas).map((zapatilla) => {
 
-        const {nombre, marca, precio, img: imagen } = zapatilla;
+        const { nombre, marca, precio, img: imagen } = zapatilla;
 
         const divRow = document.createElement("div");
         divRow.classList.add("col-xl-3");
