@@ -42,12 +42,8 @@
                     </li>
                 </ul>
                 <a href="login.html" class="btn btn-outline-light">Iniciar sesion</a>
-                <a href="registro.html" class="btn btn-outline-light">Registrarse</a>
-                
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <a href="registro.html" id="signupForm" class="btn btn-outline-light">Registrarse</a>
+                <button id="logout" href="index.html" class="btn btn-outline-light">Cerrar sesión</button>
             </div>
         </div>
     </nav>
@@ -61,12 +57,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="adidas.html">
-                    <img src="assets/img/adidas.jpg" class="d-block w-100" alt="carouse1">
+                    <img src="assets/img/adidas1.jpg" class="d-block w-100" alt="carouse1">
                 </a>
             </div>
             <div class="carousel-item">
                 <a href="nike.html">
-                    <img src="assets/img/nike.jpg" class="d-block w-100" alt="carouse2">
+                    <img src="assets/img/nike1.png" class="d-block w-100" alt="carouse2">
                 </a>
             </div>
             <div class="carousel-item">
@@ -86,6 +82,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    
 
     <div class="pord-dest">
         <h2>Productos destacados</h2>
@@ -140,7 +137,21 @@
                     <ul> 
                         <li><a class="txtfo" href="#">Inicio</a></li>
                         <li><a class="txtfo" href="#">¿Quienes somos?</a></li> 
-                        <li><a class="txtfo" href="#">Contacto</a></li>
+                        <button id="btn-abrir-modal">Contacto</button>
+                        
+                        <!-- Modal -->
+                        <div id="modal" class="modal">
+                            <div class="modal-content">
+                                <span id="btn-cerrar-modal" class="close">&times;</span>
+                                <h2>Contacto</h2>
+                                <form method="dialog">
+                                    <label>Nombre <input type="text"></label>
+                                    <p></p>
+                                    <label>Correo <input type="email"></label>
+                                    <button type="submit">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
                     </ul>
                 </div>
                 <div class="col">
@@ -161,5 +172,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous">
     </script>
+    <script type="module" src="./assets/js/index.js"></script>
 </body>
 </html>
