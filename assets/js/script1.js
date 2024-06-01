@@ -1,22 +1,14 @@
 import { obtenerZapatillas } from "./fetch/fetch.zapatillas.js";
+import { agregarAlCarrito } from "./carrito.js";
 
-//FUNCION PARA DIBUJAR Y MOSTRAR LOS DATOS
 const crearTarjetas = (zapatillas) => {
-
     let zapatillaRow = document.getElementById("zapatillaRow");
 
     zapatillas.map((zapatilla) => {
-
-        const { nombre, marca, precio, img: imagen } = zapatilla;
+        const { id, nombre, marca, precio, img: imagen } = zapatilla;
 
         const divRow = document.createElement("div");
-        divRow.classList.add("col-xl-3");
-        divRow.classList.add("col-lg-3");
-        divRow.classList.add("col-md-3");
-        divRow.classList.add("col-sm-12");
-        divRow.classList.add("col-xs-12");
-        divRow.classList.add("mt-2");
-        divRow.classList.add("mb-2");
+        divRow.classList.add("col-xl-3", "col-lg-3", "col-md-3", "col-sm-12", "col-xs-12", "mt-2", "mb-2");
 
         const card = document.createElement("div");
         card.classList.add("card");
@@ -38,25 +30,23 @@ const crearTarjetas = (zapatillas) => {
 
         const subTitulo2 = document.createElement("h4");
         subTitulo2.classList.add("card-text");
-        subTitulo2.textContent = "$" + precio.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        subTitulo2.textContent = `$${precio.toLocaleString()}`;
 
         const btnMostrar = document.createElement("button");
-        btnMostrar.classList.add("btn");
-        btnMostrar.classList.add("btn-danger");
-        btnMostrar.textContent = "Ver detalles";
+        btnMostrar.classList.add("btn", "btn-danger");
+        btnMostrar.textContent = "Agregar al carrito";
+        btnMostrar.onclick = () => agregarAlCarrito({ id, nombre, precio, img: imagen });
 
         divRow.appendChild(card);
-
         card.appendChild(img);
         card.appendChild(divBody);
-
         divBody.appendChild(titulo);
         divBody.appendChild(subTitulo);
         divBody.appendChild(subTitulo2);
         divBody.appendChild(btnMostrar);
 
         zapatillaRow.appendChild(divRow);
-    })
+    });
 }
 
 obtenerZapatillas()
@@ -65,15 +55,6 @@ obtenerZapatillas()
     })
     .catch((error) => {
         console.log(error);
-    })
+    });
 
-// CODIGO PARA PROBAR SI TE CONECTASTE A LA API
-// obtenerZapatillas()
-//     .then((zapatillas) => {
-//         zapatillas.map((zapatilla) => {
-//             console.log(zapatilla);
-//         })
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     })
+export { agregarAlCarrito };
