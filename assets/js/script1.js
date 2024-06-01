@@ -1,4 +1,6 @@
 import { obtenerZapatillas } from "./fetch/fetch.zapatillas.js";
+import { agregarAlCarrito } from "./carrito.js";
+
 import { obtenerMarcaAdidas } from "./fetch/fetch.marcas.js";
 
 
@@ -9,7 +11,7 @@ const crearTarjetas = (zapatillas) => {
 
     zapatillas.map((zapatilla) => {
 
-        const { nombre, marca, precio, img: imagen } = zapatilla;
+        const { id, nombre, marca, precio, img: imagen } = zapatilla;
 
         const divRow = document.createElement("div");
         divRow.classList.add("col-xl-3");
@@ -40,12 +42,17 @@ const crearTarjetas = (zapatillas) => {
 
         const subTitulo2 = document.createElement("h4");
         subTitulo2.classList.add("card-text");
-        subTitulo2.textContent = "$" + precio.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        subTitulo2.textContent = `$${precio.toLocaleString()}`;
 
         const btnMostrar = document.createElement("button");
         btnMostrar.classList.add("btn");
         btnMostrar.classList.add("btn-danger");
         btnMostrar.textContent = "Ver detalles";
+
+        const btnPagar = document.createElement("button");
+        btnPagar.classList.add("btn", "btn-danger");
+        btnPagar.textContent = "Agregar al carrito";
+        btnPagar.onclick = () => agregarAlCarrito({ id, nombre, precio, img: imagen });
 
         divRow.appendChild(card);
 
@@ -56,10 +63,20 @@ const crearTarjetas = (zapatillas) => {
         divBody.appendChild(subTitulo);
         divBody.appendChild(subTitulo2);
         divBody.appendChild(btnMostrar);
+        divBody.appendChild(btnPagar);
 
         zapatillaRow.appendChild(divRow);
     })
 }
+
+obtenerZapatillas()
+    .then((zapatillas) => {
+        crearTarjetas(zapatillas);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+
 
 //FUNCION PARA CREAR LAS CARD DEL CAROUSEL DE ADIDAS
 const tarjetasAdidas = (adidas) => {
@@ -120,14 +137,6 @@ const tarjetasAdidas = (adidas) => {
     })
 }
 
-obtenerZapatillas()
-    .then((zapatillas) => {
-        crearTarjetas(zapatillas);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-
 obtenerMarcaAdidas()
     .then((adidas) => {
         tarjetasAdidas(adidas);
@@ -135,8 +144,6 @@ obtenerMarcaAdidas()
     .catch((error) => {
         console.log(error);
     })
-
-
 
 // CODIGO PARA PROBAR SI TE CONECTASTE A LA API
 // obtenerZapatillas()
