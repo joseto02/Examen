@@ -1,7 +1,6 @@
 import { obtenerZapatillas } from "./fetch/fetch.zapatillas.js";
 import { obtenerMarcaAdidas } from "./fetch/fetch.marcas.js";
-// import { obtenerMarcaNike } from "./fetch/fetch.marcas.js";
-// import { obtenerMarcaPuma } from "./fetch/fetch.marcas.js";
+
 
 //FUNCION PARA DIBUJAR Y MOSTRAR LOS DATOS
 const crearTarjetas = (zapatillas) => {
